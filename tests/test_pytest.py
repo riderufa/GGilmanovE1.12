@@ -2,14 +2,14 @@ import string, random
 
 import pytest
 
-import game
+import game_func
 
 letters = string.ascii_lowercase
 hide_letters = '_' * len(letters)
 letter = random.choice(letters)
 
 def test_check_letter():
-    check_hide_letters = game.check_letter(letter, letters, hide_letters)
+    check_hide_letters = game_func.check_letter(letter, letters, hide_letters)
     assert check_hide_letters != hide_letters
 
 # TASK_ID = 1
