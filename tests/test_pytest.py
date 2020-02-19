@@ -21,24 +21,24 @@ def test_change_hideword():
 
 def test_len_hideword():
     len_hideword = len(game_func.change_hide_word(letter, letters, hide_letters))
-    assert len_hideword == hide_letters
+    assert len_hideword == len(hide_letters)
 
 def test_random_word():
     word = game_func.random_word(words)
     assert word in words
 
 def test_insert_letter():
-    i = random(len(hide_letters))
+    i = random.random(len(hide_letters))
     check_hideword = game_func.insert_letter(hide_letters, letter, i)
     assert check_hideword[i] == letter
 
 def test_change_errors_count():
-    errors_count = random(100)
+    errors_count = random.random(100)
     changed_errors_count = game_func.change_errors_count(errors_count)
     assert changed_errors_count == errors_count + 1
 
 def test_change_errors_text():
-    errors_count = random(1, 5)
+    errors_count = random.random(1, 5)
     errors_text = game_func.change_errors_text(errors_count)
     assert errors_text in list_text
 
