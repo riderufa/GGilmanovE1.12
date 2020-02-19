@@ -7,10 +7,40 @@ import game_func
 letters = string.ascii_lowercase
 hide_letters = '_' * len(letters)
 letter = random.choice(letters)
+list_text = ['ошибка', 'ошибки']
+words = ['skillfactory', 'testing', 'blackbox', 'pytest', 'unittest', 'coverage']
 
-def test_check_letter():
-    check_hide_letters = game_func.check_letter(letter, letters, hide_letters)
-    assert check_hide_letters != hide_letters
+# def test_change_hideword():
+#     check_hideword = game_func.change_hide_word(letter, letters, hide_letters)
+#     assert check_hideword != hide_letters
+
+@pytest.mark.parametrize("letter", list(letters))
+def test_change_hideword():
+    check_hideword = game_func.change_hide_word(letter, letters, hide_letters)
+    assert check_hideword != hide_letters
+
+def test_len_hideword():
+    len_hideword = len(game_func.change_hide_word(letter, letters, hide_letters))
+    assert len_hideword == hide_letters
+
+def test_random_word():
+    word = game_func.random_word(words)
+    assert word in words
+
+def test_insert_letter():
+    i = random(len(hide_letters))
+    check_hideword = game_func.insert_letter(hide_letters, letter, i)
+    assert check_hideword[i] == letter
+
+def test_change_errors_count():
+    errors_count = random(100)
+    changed_errors_count = game_func.change_errors_count(errors_count)
+    assert changed_errors_count == errors_count + 1
+
+def test_change_errors_text():
+    errors_count = random(1, 5)
+    errors_text = game_func.change_errors_text(errors_count)
+    assert errors_text in list_text
 
 # TASK_ID = 1
 # TASK_TEXT = "text text"
