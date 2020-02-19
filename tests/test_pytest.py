@@ -10,14 +10,14 @@ letter = random.choice(letters)
 list_text = ['ошибка', 'ошибки']
 words = ['skillfactory', 'testing', 'blackbox', 'pytest', 'unittest', 'coverage']
 
-# def test_change_hideword():
-#     check_hideword = game_func.change_hide_word(letter, letters, hide_letters)
-#     assert check_hideword != hide_letters
-
-@pytest.mark.parametrize("letter", list(letters))
 def test_change_hideword():
     check_hideword = game_func.change_hide_word(letter, letters, hide_letters)
     assert check_hideword != hide_letters
+
+# @pytest.mark.parametrize("letter", list(letters))
+# def test_change_hideword():
+#     check_hideword = game_func.change_hide_word(letter, letters, hide_letters)
+#     assert check_hideword != hide_letters
 
 def test_len_hideword():
     len_hideword = len(game_func.change_hide_word(letter, letters, hide_letters))
